@@ -1,0 +1,100 @@
+/.gitignore for MCP-TCC
+# Visual Studio / .NET
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+_ReSharper*/
+.idea/
+/.vscode/
+
+# Build outputs
+bin/
+obj/
+Debug/
+Release/
+publish/
+TestResults/
+
+# Rider
+/.idea/
+
+# NuGet
+packages/
+*.nupkg
+
+# DotNet core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Runtime files
+*.runtimeconfig.json
+*.deps.json
+
+# User-specific files
+*.$history
+*.userprefs
+
+# Certificates
+*.pfx
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+pip-wheel-metadata/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+*.egg
+MANIFEST
+.pylint.d/
+.mypy_cache/
+.pytest_cache/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code workspace
+.history/
+
+# Local env files
+local.settings.json
+
+# Ignore generated binaries
+*.dll
+*.exe
+*.so
+*.dylib

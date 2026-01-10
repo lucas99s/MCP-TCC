@@ -1,0 +1,22 @@
+services:
+  # MCP Server
+  mcp-server:
+    build: .
+    image: postgre-mcp-server
+    container_name: postgre-mcp-server
+    environment:
+      # Configure these variables for your external database
+      POSTGRES_HOST: ${POSTGRES_HOST:-localhost}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE:-postgres}
+      POSTGRES_USERNAME: ${POSTGRES_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_TIMEOUT: ${POSTGRES_TIMEOUT:-30}
+      POSTGRES_MAX_POOL_SIZE: ${POSTGRES_MAX_POOL_SIZE:-100}
+    ports:
+      - "6099:6099"
+    # Use host network on Linux or add extra_hosts for Windows/macOS
+    # Uncomment the line below if you are on Linux and the DB is on the host
+    # network_mode: host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

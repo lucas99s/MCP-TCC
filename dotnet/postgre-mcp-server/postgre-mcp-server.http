@@ -1,0 +1,107 @@
+# PostgreSQL MCP Server - HTTP Test File
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+# Use HTTP (port 6099) instead of HTTPS to avoid SSL certificate issues in development
+@HostAddress = http://localhost:6099
+
+### Initialize MCP Connection
+POST {{HostAddress}}/
+Accept: application/json, text/event-stream
+Content-Type: application/json
+MCP-Protocol-Version: 2025-11-05
+
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "initialize",
+    "params": {
+        "protocolVersion": "2025-11-05",
+        "capabilities": {},
+        "clientInfo": {
+            "name": "test-client",
+            "version": "1.0.0"
+        }
+    }
+}
+
+### List Available Tools
+POST {{HostAddress}}/
+Accept: application/json, text/event-stream
+Content-Type: application/json
+MCP-Protocol-Version: 2025-11-05
+
+{
+    "jsonrpc": "2.0",
+    "id": 2,
+    "method": "tools/list"
+}
+
+### Test Database Connection
+POST {{HostAddress}}/
+Accept: application/json, text/event-stream
+Content-Type: application/json
+MCP-Protocol-Version: 2025-11-05
+
+{
+    "jsonrpc": "2.0",
+    "id": 3,
+    "method": "tools/call",
+    "params": {
+        "name": "test_connection",
+        "arguments": {}
+    }
+}
+
+### List Tables
+POST {{HostAddress}}/
+Accept: application/json, text/event-stream
+Content-Type: application/json
+MCP-Protocol-Version: 2025-11-05
+
+{
+    "jsonrpc": "2.0",
+    "id": 4,
+    "method": "tools/call",
+    "params": {
+        "name": "list_tables",
+        "arguments": {}
+    }
+}
+
+### Get Table Schema - Users Table
+POST {{HostAddress}}/
+Accept: application/json, text/event-stream
+Content-Type: application/json
+MCP-Protocol-Version: 2025-11-05
+
+{
+    "jsonrpc": "2.0",
+    "id": 5,
+    "method": "tools/call",
+    "params": {
+        "name": "get_table_schema",
+        "arguments": {
+            "tableName": "users"
+        }
+    }
+}
+
+### Execute SQL Query - Select All Users
+POST {{HostAddress}}/
+Accept: application/json, text/event-stream
+Content-Type: application/json
+MCP-Protocol-Version: 2025-11-05
+
+{
+    "jsonrpc": "2.0",
+    "id": 6,
+    "method": "tools/call",
+    "params": {
+        "name": "execute_sql",
+        "arguments": {
+            "command": "SELECT * FROM users LIMIT 10"
+        }
+    }
+}
+
+###

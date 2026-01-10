@@ -1,0 +1,27 @@
+# Build artifacts
+bin/
+obj/
+*.user
+*.suo
+*.tmp
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Environment files (contain sensitive data)
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# User secrets
+appsettings.Development.json
