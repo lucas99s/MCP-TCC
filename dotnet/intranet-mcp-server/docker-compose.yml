@@ -1,0 +1,12 @@
+services:
+  intranet-mcp-server:
+    build: .
+    image: intranet-mcp-server
+    container_name: intranet-mcp-server
+    environment:
+      ToolVersion: ${TOOL_VERSION:-Detailed}
+      ConnectionStrings__Default: Host=${POSTGRES_HOST:-localhost};Port=${POSTGRES_PORT:-5432};Database=${POSTGRES_DATABASE:-postgres};Username=${POSTGRES_USERNAME:-postgres};Password=${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "6099:6099"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

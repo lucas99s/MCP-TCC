@@ -1,0 +1,13 @@
+bin/
+obj/
+*.user
+*.tmp
+.vscode/
+.idea/
+*.log
+README.md
+.git/
+.gitignore
+.env
+.env.local
+.env.*.local

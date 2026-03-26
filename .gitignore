@@ -92,6 +92,8 @@ MANIFEST
 
 # Local env files
 local.settings.json
+.env
+**/.env
 
 # Ignore generated binaries
 *.dll

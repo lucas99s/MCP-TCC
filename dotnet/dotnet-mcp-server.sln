@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36511.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "intranet_mcp_server", "intranet-mcp-server\intranet_mcp_server.csproj", "{426BBA6A-6C31-84E3-9F03-09369329D84A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "postgre_mcp_server", "postgre-mcp-server\postgre_mcp_server.csproj", "{A3F17B28-6A86-563D-A1BC-BB6C6492C88B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{426BBA6A-6C31-84E3-9F03-09369329D84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{426BBA6A-6C31-84E3-9F03-09369329D84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{426BBA6A-6C31-84E3-9F03-09369329D84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{426BBA6A-6C31-84E3-9F03-09369329D84A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3F17B28-6A86-563D-A1BC-BB6C6492C88B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F17B28-6A86-563D-A1BC-BB6C6492C88B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F17B28-6A86-563D-A1BC-BB6C6492C88B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F17B28-6A86-563D-A1BC-BB6C6492C88B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {254EE299-736C-494C-A104-31C99DEE2EA9}
+	EndGlobalSection
+EndGlobal
