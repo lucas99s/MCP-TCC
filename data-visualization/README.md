@@ -44,7 +44,6 @@ Para usar a API real:
 
 ```powershell
 $env:NEXT_PUBLIC_API_BASE_URL="http://localhost:5080/api"
-$env:NEXT_PUBLIC_USE_MOCKS="false"
 ```
 
 ## Docker
@@ -70,8 +69,6 @@ As variáveis principais são:
 - `BACKEND_PORT`
 - `INTERNAL_API_BASE_URL`
 - `NEXT_PUBLIC_API_BASE_URL`
-- `USE_MOCKS`
-- `NEXT_PUBLIC_USE_MOCKS`
 
 ## Subir com Docker
 

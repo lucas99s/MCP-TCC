@@ -12,7 +12,7 @@ RUN npm ci
 COPY frontend/ ./
 RUN npm run build
 
-FROM mcr.microsoft.com/dotnet/aspnet:9.0-bookworm-slim AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 RUN apt-get update \
     && apt-get install -y --no-install-recommends nodejs \
     && rm -rf /var/lib/apt/lists/*
@@ -28,7 +28,6 @@ ENV PORT=3000
 COPY --from=backend-build /out/backend /app/backend
 COPY --from=frontend-build /src/frontend/.next/standalone /app/frontend
 COPY --from=frontend-build /src/frontend/.next/static /app/frontend/.next/static
-COPY --from=frontend-build /src/frontend/public /app/frontend/public
 COPY docker/start.sh /app/start.sh
 
 RUN chmod +x /app/start.sh

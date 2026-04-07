@@ -24,4 +24,4 @@ ENV POSTGRES_MAX_POOL_SIZE=100
 ENV ASPNETCORE_URLS=http://+:6099
 EXPOSE 6099
 
-ENTRYPOINT ["./postgre-mcp-server"]
+ENTRYPOINT ["./postgre_mcp_server"]
