@@ -31,8 +31,14 @@ O foco deste repositório está na **variável "qualidade da descrição das fer
 
 ## 🎯 Qualidade semântica das ferramentas.
 
-Para fins deste experimento, a qualidade da descrição da ferramenta foi tratada de forma abrangente, incluindo não apenas a descrição textual principal, mas também o nome da tool e as descrições de seus parâmetros. 
-Essa decisão foi adotada porque, na interação entre modelos de linguagem e ferramentas MCP, todos esses elementos compõem conjuntamente a superfície semântica utilizada pelo modelo para inferir a função da ferramenta e decidir sua seleção.
+Para fins deste experimento, a qualidade da descrição da ferramenta é tratada de forma abrangente, considerando:
+
+* a descrição textual principal da tool
+* a descrição dos parâmetros
+* o grau de clareza, especificidade e riqueza semântica desses elementos
+
+Nesta etapa do trabalho, **o nome exposto da tool foi padronizado entre as versões genérica e detalhada**.
+Essa decisão foi adotada para isolar melhor a variável principal da pesquisa, permitindo observar o impacto da descrição semântica sobre a seleção e o uso da ferramenta sem introduzir o nome da tool como fator de confusão.
 
 ---
 
@@ -56,8 +62,8 @@ O projeto é implementado em **.NET** e segue uma arquitetura modular para facil
 
 * **Tool Descriptions**
 
-  * Versão A: descrições detalhadas (alta qualidade)
-  * Versão B: descrições genéricas (baixa qualidade)
+  * Versão A: mesmas tools com descrições detalhadas (alta qualidade semântica)
+  * Versão B: mesmas tools com descrições genéricas (baixa qualidade semântica)
 
 * **MCP Server**
 
@@ -93,6 +99,12 @@ Os testes realizados com este servidor seguem uma abordagem de **pesquisa experi
 | Descrição da Tool | Detalhada vs Genérica    |
 | Prompt            | Claro vs Ambíguo         |
 
+Observação metodológica:
+
+* O conjunto de tools disponíveis permanece o mesmo entre os cenários.
+* Os nomes das ferramentas também permanecem os mesmos.
+* O que varia é apenas a qualidade semântica das descrições e dos parâmetros.
+
 ---
 
 ## 🧠 Importância da Pesquisa
@@ -105,6 +117,12 @@ A maioria das implementações atuais de IA foca apenas em:
 Este trabalho investiga um ponto ainda pouco explorado:
 
 > 📌 **A qualidade semântica das ferramentas como fator crítico na tomada de decisão da IA**
+
+Mais especificamente, o experimento busca entender se descrições mais claras e informativas, mesmo sem alterar o nome da tool, aumentam a capacidade do modelo de:
+
+* identificar corretamente a ferramenta adequada
+* selecionar a ferramenta correta no conjunto disponível
+* invocá-la de forma mais confiável
 
 ---
 

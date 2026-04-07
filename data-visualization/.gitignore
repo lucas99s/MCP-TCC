@@ -1,0 +1,9 @@
+.vs/
+**/bin/
+**/obj/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+.env
+.env.local
+.DS_Store

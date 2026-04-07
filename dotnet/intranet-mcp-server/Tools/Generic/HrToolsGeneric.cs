@@ -1,4 +1,4 @@
-using System.ComponentModel;
+ï»¿using System.ComponentModel;
 using System.Text.Json;
 using intranet_mcp_server.Services;
 using ModelContextProtocol.Server;
@@ -6,14 +6,14 @@ using ModelContextProtocol.Server;
 namespace intranet_mcp_server.Tools.Generic;
 
 /// <summary>
-/// Version B — Generic, ambiguous tool descriptions.
+/// Version B - Generic, ambiguous tool descriptions.
 /// Delegates all logic to IntranetService (same as Detailed version).
 ///
-/// Tools exposed (4) — mirrors HrToolsDetailed exactly:
-///   - tool_hr_01
-///   - tool_hr_02
-///   - tool_hr_03
-///   - tool_hr_04
+/// Tools exposed (4) - mirrors HrToolsDetailed exactly:
+///   - get_employees
+///   - get_vacation_balance
+///   - get_leave_requests
+///   - get_departments
 /// </summary>
 [McpServerToolType]
 internal class HrToolsGeneric
@@ -21,20 +21,20 @@ internal class HrToolsGeneric
     private readonly IntranetService _service;
     public HrToolsGeneric(IntranetService service) => _service = service;
 
-    [McpServerTool(Name = "tool_hr_01")]
+    [McpServerTool(Name = "get_employees")]
     [Description("Retrieves employees.")]
     public async Task<string> GetEmployees(
-        [Description("Optional value.")] 
+        [Description("Optional value.")]
         string? departmentName = null)
     {
         var result = await _service.GetEmployeesAsync(departmentName);
         return Serialize(result);
     }
 
-    [McpServerTool(Name = "tool_hr_02")]
+    [McpServerTool(Name = "get_vacation_balance")]
     [Description("Retrieves balance.")]
     public async Task<string> GetVacationBalance(
-        [Description("Numeric value.")] 
+        [Description("Numeric value.")]
         int employeeId)
     {
         var result = await _service.GetVacationBalanceAsync(employeeId);
@@ -43,19 +43,19 @@ internal class HrToolsGeneric
             : Serialize(result);
     }
 
-    [McpServerTool(Name = "tool_hr_03")]
+    [McpServerTool(Name = "get_leave_requests")]
     [Description("Retrieves requests.")]
     public async Task<string> GetLeaveRequests(
-        [Description("Numeric value.")] 
+        [Description("Numeric value.")]
         int employeeId,
-        [Description("Optional value.")] 
+        [Description("Optional value.")]
         string? status = null)
     {
         var result = await _service.GetLeaveRequestsAsync(employeeId, status);
         return Serialize(result);
     }
 
-    [McpServerTool(Name = "tool_hr_04")]
+    [McpServerTool(Name = "get_departments")]
     [Description("Retrieves departments.")]
     public async Task<string> GetDepartments()
     {

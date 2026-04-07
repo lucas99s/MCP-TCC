@@ -1,4 +1,4 @@
-using System.ComponentModel;
+ï»¿using System.ComponentModel;
 using System.Text.Json;
 using intranet_mcp_server.Services;
 using ModelContextProtocol.Server;
@@ -6,13 +6,13 @@ using ModelContextProtocol.Server;
 namespace intranet_mcp_server.Tools.Generic;
 
 /// <summary>
-/// Version B — Generic, ambiguous tool descriptions.
-// Delegates all logic to IntranetService (same as Detailed version).
-//
-/// Tools exposed (3) — mirrors PayrollToolsDetailed exactly:
-///   - tool_payroll_01
-///   - tool_payroll_02
-///   - tool_payroll_03
+/// Version B - Generic, ambiguous tool descriptions.
+/// Delegates all logic to IntranetService (same as Detailed version).
+///
+/// Tools exposed (3) - mirrors PayrollToolsDetailed exactly:
+///   - get_payroll_summaries
+///   - get_payroll_annual_summary
+///   - get_payroll_deduction_ratio
 /// </summary>
 [McpServerToolType]
 internal class PayrollToolsGeneric
@@ -20,19 +20,19 @@ internal class PayrollToolsGeneric
     private readonly IntranetService _service;
     public PayrollToolsGeneric(IntranetService service) => _service = service;
 
-    [McpServerTool(Name = "tool_payroll_01")]
+    [McpServerTool(Name = "get_payroll_summaries")]
     [Description("Retrieves summary.")]
     public async Task<string> GetPayrollSummaries(
-        [Description("Numeric value.")] 
+        [Description("Numeric value.")]
         int employeeId,
-        [Description("Optional value.")] 
+        [Description("Optional value.")]
         int? year = null)
     {
         var result = await _service.GetPayrollSummariesAsync(employeeId, year);
         return Serialize(result);
     }
 
-    [McpServerTool(Name = "tool_payroll_02")]
+    [McpServerTool(Name = "get_payroll_annual_summary")]
     [Description("Retrieves annual data.")]
     public async Task<string> GetPayrollAnnualSummary(
         [Description("Numeric value.")]
@@ -46,7 +46,7 @@ internal class PayrollToolsGeneric
         return Serialize(result);
     }
 
-    [McpServerTool(Name = "tool_payroll_03")]
+    [McpServerTool(Name = "get_payroll_deduction_ratio")]
     [Description("Retrieves ratio.")]
     public async Task<string> GetPayrollDeductionRatio(
         [Description("Numeric value.")]

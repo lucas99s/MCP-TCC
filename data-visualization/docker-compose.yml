@@ -1,0 +1,20 @@
+services:
+  data-visualization-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: data-visualization-app
+    container_name: data-visualization-app
+    env_file:
+      - .env
+    environment:
+      ConnectionStrings__Experiments: ${EXPERIMENTS_CONNECTION_STRING}
+      API_BASE_URL: ${INTERNAL_API_BASE_URL}
+      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
+      USE_MOCKS: ${USE_MOCKS}
+      NEXT_PUBLIC_USE_MOCKS: ${NEXT_PUBLIC_USE_MOCKS}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "${FRONTEND_PORT}:3000"
+      - "${BACKEND_PORT}:5080"
